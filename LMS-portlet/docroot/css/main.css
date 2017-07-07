@@ -1,0 +1,646 @@
+
+/***************************************Apply Leave***********************************************************/
+ input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+#mainContent legend{
+	
+	font-size:1.1em;
+}
+#mainContent label {
+	display: block;
+	margin-bottom: 5px;
+	float: left;
+	width: 40%;
+}
+#mainContent .column-content{
+    padding: 0;
+}
+
+#comments .control-group {
+	width: 100%;
+}
+
+#comments textarea {
+	width: 98%;
+}
+
+#comments label {
+	display: none;
+}
+
+#fieldRequired,#startdateValidationMsg,#enddateValidationMsg{
+    line-height: 1em;
+    display: block;
+    color: red;}
+    /**************************************************Apply Leave*********************************************************************/
+    /***********************************************************Leave History****************************************/
+    #leaveHistoryDatatable_filter{
+    display:none;
+    }
+ #startdateValidationMsg,#enddateValidationMsg
+    {
+    position: relative;
+    top: -18px;
+    }
+
+    #leaveHistoryDatatable_length{
+    display:none;
+    }
+    
+    #leavePolicy_filter{
+    display:none;
+    }
+    #leavePolicy_length{
+    display:none;
+    }
+.aui .container, .aui .navbar-static-top .container, .aui .navbar-fixed-top .container, .aui .navbar-fixed-bottom .container{
+    width:100%;}
+    #mainContent table tr:nth-child(even){
+background:whitesmoke;
+}
+   #mainContent table tr:nth-child(odd){
+background:white;
+}
+#mainContent table td{
+	border:1px solid #f1f1f1;
+	max-width: 15em;
+    overflow-x: auto;
+}
+
+
+
+#mainContent table{
+border:1px solid #ccc;
+table-layout : fixed;
+
+}
+
+ #mainContent {
+ 
+ width:97%;
+margin:auto;
+background:#f7f7f7;
+padding:1em;}
+
+ #mainContent th{
+
+background:teal;
+color:#fff;
+font-weight:bold;
+border:1px solid #fff;
+ max-width: 15em;
+  overflow-x: auto;
+  padding: 10px 0px;
+   }
+ 
+ /***********************************************Leave History**********************************************************/
+ /************************************************Leave Summary******************************************************/
+ #summary .column{
+     width: 49%;
+    float: left;
+    background:#f7f7f7;
+    height: 2em;
+    margin: 1px;
+    line-height: 2em;
+    text-align: left;
+
+
+}
+#summary .column:first-of-type {
+    font-weight: bold;
+}
+
+#summary legend{
+    font-size: 1em;
+    color: cadetblue;
+    text-align: left;}
+    /************************************Leave Summary*****************************************************************/
+    /*****************************************Reportees***********************************************/
+    .approver{
+    width: 99%;
+    background: teal;
+    color: #fff;
+    font-weight: bold;
+    line-height: 1em;
+    padding: 0.5em;}
+    /********************************Reportees***************************************************************/
+    /*****************************************************Workflow Tasks**********************************************/
+.modal-title {
+    font-weight: bold !important;
+    font-size: 18px !important;
+    text-align: center;
+}
+.aui .modal-header {
+
+    background: #ee702a;
+    color: #fff;
+   
+}
+	
+
+.modal-body label {
+    text-align: left;
+    width:24% !important;
+   
+}
+
+ 
+#mainContent > .modalColumn{
+width:0%;}
+
+.aui .modal {
+  
+    top: 30% !important;
+    left: 55% !important;
+   
+}
+
+
+
+.aui .modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 15px;
+    height: 13em;
+}
+.aui .modal-body .btn {
+    float: right;
+}
+.aui .modal-footer {
+	border: 1px solid #ddd;
+}
+#myModalApprove {
+    padding-right: 0px;
+    width: 25em;
+    height: 20em;
+}
+
+#myModalApprove textarea{
+    padding-right: 0px;
+    width: 22em;
+    height: 7em;
+    background:aliceblue;
+}
+#myModalReject {
+    padding-right: 0px;
+    width: 25em;
+    height: 20em;
+}
+
+#myModalReject textarea{
+    padding-right: 0px;
+    width: 22em;
+    height: 7em;
+    background:aliceblue;
+}
+#myModalDelegate {
+    padding-right: 0px;
+    width: 25em;
+    height: 20em;
+}
+#myModalDelegate textarea{
+    padding-right: 0px;
+    width: 22em;
+    height: 7em;
+    background:aliceblue;
+}
+
+#myModalComments {
+     padding-right: 0px;
+    width: 25em;
+    height: 20em;
+}
+
+#myModalComments textarea{
+     padding-right: 0px;
+    width: 22em;
+    height: 7em;
+    background:aliceblue;
+}
+
+
+#myModalDelegateforALL {
+    padding-right: 0px;
+    width: 25em;
+    height: 20em;
+}
+#myModalDelegateforALL textarea{
+    padding-right: 0px;
+    width: 22em;
+    height: 5em;
+    background:aliceblue;
+}
+/****************************************************Workflow Tasks*********************************************************************/
+/*****************Horizontal Navigation********************************/
+.leaveNav-bar {
+  background:teal;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  text-align: left;  /* May want to align center */
+      margin-top: -1.5em;
+}
+.leaveNav-menu a {
+  color: #fff;  /* White font for link color. */
+      border-right: 1px solid chocolate;
+}
+.leaveNav-menu li > a > span:after {
+    content: '\25be';
+        padding: 0px 0px 0px 24px;
+}
+.leaveNav-menu,
+.leaveNav-menu ul {
+  list-style: none;
+  margin: 0em 0em 1em 0em !important;
+  padding: 0 !important;
+}
+.leaveNav-menu li {
+  position: relative;
+  cursor: pointer;
+}
+.leaveNav-menu a {
+  padding: 5px 10px;
+  margin: 5px 10px;
+  display: block;
+  text-decoration: none;
+  border-radius: .2em;  /* Nice little rounded corners. */
+}
+.leaveNav-menu a:hover {
+ 
+  background:#286A7A;
+   color: #fff;
+   text-decoration:none;
+  
+}
+ 
+/* Selected Menu Item */
+ 
+.selected {
+  opacity: 1.0;
+  background:#286A7A;
+  color: #fff!important;                /* Black font. */
+  border-radius: .2em;
+}
+ 
+/* Navigation Bar - Level 1 Drop Down Menu */
+ 
+.leaveNav-menu > li {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -4px;
+  cursor:pointer;
+}
+.leaveNav-menu > li:first-child {
+  margin-left: 0;
+}
+.leaveNav-menu > li > a {}
+.leaveNav-menu > li > a:hover {}
+ 
+/* Navigation Bar - Level 2 */
+ 
+.leaveNav-menu > li > ul {
+  text-align: left;
+  width: auto;  /* Change auto value with 200px if you want a bigger menu */
+  display: none;
+   background:teal;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-bottom: 5px;
+ min-width: 246px;
+  border-radius: 0 0 .5em .5em;
+  z-index: 9999999;
+}
+.leaveNav-menu > li:hover > ul {
+  display: block;
+}
+.leaveNav-menu ul li a {
+	    border-right:none;
+}
+.leaveNav-menu ul li a:hover {}
+ 
+/* Navigation Bar - Level 3 */
+ 
+.leaveNav-menu > li > ul > li > ul {
+  text-align: left;
+  display: none;
+  background:#1E4A55;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  padding-bottom: 5px;
+  min-width: 246px;
+  border-radius: 0 0 .5em .5em;
+  z-index: 9999999;
+}
+.leaveNav-menu > li > ul > li:hover > ul {
+  display: block;
+}
+.leaveNav-menu ul ul li {}
+.leaveNav-menu ul ul li a {}
+.leaveNav-menu ul ul li a:hover {}
+ 
+/* Navigation Bar - Level 4 */
+ 
+.leaveNav-menu > li > ul > li > ul > li > ul {
+  text-align: left;
+  display: none;
+   background:#1E4A55;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  padding-bottom: 5px;
+  min-width: 250px;
+  border-radius: 0 0 .5em .5em;
+  z-index: 9999999;
+}
+.leaveNav-menu > li > ul > li > ul > li:hover > ul {
+  display: block;
+}
+.leaveNav-menu ul ul ul li {}
+.leaveNav-menu ul ul ul li a {}
+.leaveNav-menu ul ul ul li a:hover {}
+
+
+/*******************Horizontal Navigation************************************************/
+
+
+
+/******************************Leave Balances******************************************************/
+ .lfr-search-container {
+    margin-top:0px !important;
+    overflow: auto;
+}
+
+/***************************************Leave Balances***************************************************************/
+
+/************************Add Leave Type***********************************/
+
+#addLeaveDef{
+ 
+    width: 97%;
+    margin:auto;
+    background:#f7f7f7;
+    padding:1em;
+   } 
+   
+   #addLeaveDef label {
+    width: 207px;
+}
+/* #addLeaveDef label {
+	display: block;
+	margin-bottom: 5px;
+	 display: block;
+	margin-bottom: 5px;*
+	float: left;
+	width: 40%; 
+} */
+
+/* #addLeaveDef .column-content{
+    padding: 2em;
+    width : 300%;
+} */
+ #addLeaveDef .control-group{
+	
+	
+	float:left;
+} 
+
+/************************Add Leave Type***********************************/
+/*****************************************Edit Leave Type***********************************/
+#editLeaveDef{
+ 
+    width: 97%;
+    margin:auto;
+    background:#f7f7f7;
+    padding:1em;
+    } 
+#editLeaveDef label {
+	/* display: block;
+	margin-bottom: 5px; */
+	/* float: left;
+	width: 32%; */
+	 width: 207px;
+}
+/* #editLeaveDef .column-content{
+    padding: 0;
+} */
+ #editLeaveDef .control-group{
+	
+	
+	float:left;
+}
+/*****************************************Edit Leave Type***********************************/
+/****************************************Holiday List***************************************/
+
+#_ApplyLeave_WAR_LMSportlet_holidaysList th{
+
+background:teal;
+color:#fff;
+font-weight:bold;}
+
+#_ApplyLeave_WAR_LMSportlet_holidaysList table{
+border:1px solid #ccc;
+}
+
+ #_ApplyLeave_WAR_LMSportlet_holidaysList {
+ 
+ width:97%;
+}
+/****************************************Holiday List***************************************/
+
+ /***********************HR Edit Leave Form****************************************/
+ 
+ #leaveSearch{
+ width:97%;
+margin:auto;
+background:#f7f7f7;
+padding:1em; }
+ 
+ #editLeaveForm #mainContent{
+ width:97%;}
+ 
+ /**************************Reportees*******************************/
+  /* #repContainer{
+ width:76%;
+ float:right;}
+ 
+ .approver{
+  width:76%;
+ float:right;
+ } */
+ /***********************WorkFlow Tasks***************************/
+    #employeeLeavehistory_filter{
+    display:none;
+    }
+
+
+    #employeeLeavehistory_length{
+    display:none;
+    }
+      #weekendsDatatable_filter{
+    display:none;
+    }
+
+
+    #weekendsDatatable_length{
+    display:none;
+    }
+    
+    #workFlowRequests{
+ width:97%;
+ margin:auto;
+ background:#f7f7f7;
+ padding:1em;
+ } 
+ #projBlock {
+ display: inline-block;
+    width: 30%;
+    background: lightblue;
+    color: #000;
+    margin: 0px 4px 10px 0px;
+    border-radius: 4px;
+    padding: 6px;
+    float: left;
+}
+ #workFlowRequests h5{
+    background: lightskyblue;
+    padding: 3px;
+}
+
+
+#leaveSearch label {
+    width: 18em;
+}
+
+/***********************************JQuery Data tables***************************************/
+.filterCri label {
+    display: inline-block;
+    width: 41%; 
+}
+
+
+#filters {
+    width: 30%;
+    float: right;
+}
+.filterCri {
+    display: inline-block;
+    width: 100%;
+}
+.holfilterCri label {
+    display: inline-block;
+    width: 41%; 
+}
+
+
+#holfilters {
+   width: 97%;
+    padding-left: 2em;
+   
+}
+.holfilterCri {
+    display: inline-block;
+    width: 48%;
+    float:left;
+}
+.aui .nav-tabs > li > a {
+    padding-top: 8px;
+    padding-bottom: 11px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    color:#ee702a;
+        background: #eee;
+    border: 1px solid #ddd;
+}
+.aui ul, .aui ol {
+    padding: 0;
+    margin: -24px 0 10px 25px;
+    } 
+
+/***********************************JQuery Data tables***************************************/
+/****************************Action Icon Styling*************************/
+
+.actionIcon{
+	
+	padding:10px;
+}
+.aui a .icon-ok, .aui a .icon-remove, .aui .icon-user,.aui a .icon-view,.aui a .icon-edit,.aui a .icon-remove-sign,.aui a .icon-eye-open,.aui a .icon-trash{
+    display: inline;
+    padding: 5px;
+    border: 1px solid #ddd;
+    color:#ee702a;
+    /* background: #fff; */
+    border-radius: 7px;
+    margin:3px;
+}
+
+/************timesheet details information*************/
+.timesheetDetails{
+	color:blue;	
+}
+.inValid{
+	color:red;
+}
+.valid{
+	color:green;
+}
+/**************Comp Off Requests****************************/
+
+#compOffHistory_length,#compOffHistory_filter{
+	
+display:none;	
+}
+
+.yui3-skin-sam .yui3-aclist-item-active {
+    margin-top: 2em;
+}
+/***************************** Aui Validator*****************************************/
+.aui .control-group.error .help-inline {
+    float: right;
+    position: relative;
+    top: 1px;
+    width: 85%;
+    
+}
+/***************Auto complete bolck size ***************************************/
+.yui3-skin-sam .yui3-aclist-content {
+    max-block-size: 160px;
+    overflow-y: scroll;
+    height: 72px;
+}
+/**************Summary page CSS ******************/
+#summarydiv
+{
+	width : 51%;
+}
+/*****all pages date picker******/
+.ui-datepicker-trigger{
+
+    position: absolute;
+    }
+    
+    
+/******************Processing CSS*************************/
+.overlay {
+    background-color:#EFEFEF;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+    opacity: .5; /* in FireFox */ 
+    filter: alpha(opacity=50); /* in IE */
+    background: url("../css/images/processing.gif") 50% 50% no-repeat #ede9df;
+}
+
+    

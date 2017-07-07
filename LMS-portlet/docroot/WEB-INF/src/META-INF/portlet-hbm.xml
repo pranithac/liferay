@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.trianz.lms.model.LeaveApprovalHistory" />
+	<import class="com.trianz.lms.model.LeaveBalance" />
+	<import class="com.trianz.lms.model.LeaveCategories" />
+	<import class="com.trianz.lms.model.LeaveInformationAudit" />
+	<import class="com.trianz.lms.model.LMSCompOffLeaveDetails" />
+	<import class="com.trianz.lms.model.LMSEmployeeDetails" />
+	<import class="com.trianz.lms.model.LMSHolidays" />
+	<import class="com.trianz.lms.model.LMSLeaveInformation" />
+	<import class="com.trianz.lms.model.LMSLeavePolicies" />
+	<import class="com.trianz.lms.model.LMSLeaveType" />
+	<import class="com.trianz.lms.model.LMSMailNotifications" />
+	<import class="com.trianz.lms.model.LMSProjectDetails" />
+	<import class="com.trianz.lms.model.LMSWeekends" />
+	<import class="com.trianz.lms.model.securaxEmployeeHrs" />
+	<import class="com.trianz.lms.model.WFHManulPunch" />
+	<class name="com.trianz.lms.model.impl.LeaveApprovalHistoryImpl" table="LeaveApprovalHistory">
+		<cache usage="read-write" />
+		<id name="SNo" type="int">
+			<generator class="identity" />
+		</id>
+		<property name="LeaveRequestId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ApproverID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="LeaveStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LeaveBalanceImpl" table="LeaveBalance">
+		<id name="EmployeeId" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="ELBalance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="CLBalance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="CompOffLeaveBalance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LeaveCategoriesImpl" table="LeaveCategories">
+		<id name="LeaveTypeCode" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="LeaveCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="LeaveCategory" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LeaveInformationAuditImpl" table="LeaveInformationAudit">
+		<cache usage="read-write" />
+		<id name="LogId" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="LeaveRequestId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="Action" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ActionBy" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CreatedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSCompOffLeaveDetailsImpl" table="LMSCompOffLeaveDetails">
+		<composite-id name="primaryKey" class="com.trianz.lms.service.persistence.LMSCompOffLeaveDetailsPK">
+			<key-property name="EmployeeID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+			<key-property name="CompoffDate" type="org.hibernate.type.TimestampType" />
+		</composite-id>
+		<property name="ApprovedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CreatedDate" type="org.hibernate.type.TimestampType" />
+		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CompOffId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ApproverEmployeeID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSEmployeeDetailsImpl" table="LMSEmployeeDetails">
+		<id name="EmployeeId" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="EmployeeName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="EmployeeEmailID" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="JoiningDate" type="org.hibernate.type.TimestampType" />
+		<property name="SupervisorId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="SupervisorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="SupervisorEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Location" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Region" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSHolidaysImpl" table="LMSHolidays">
+		<id name="HolidayId" type="int">
+			<generator class="identity" />
+		</id>
+		<property name="HolidayDate" type="org.hibernate.type.TimestampType" />
+		<property name="Occassion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="HolidayYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="LocationsApplicable" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSLeaveInformationImpl" table="LMSLeaveInformation">
+		<id name="SNo" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="LeaveRequestId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="EmployeeId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="AbsenceType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="LeaveTypeCode" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="LeaveCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="SupervisorID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="StartDate" type="org.hibernate.type.TimestampType" />
+		<property name="EndDate" type="org.hibernate.type.TimestampType" />
+		<property name="Duration" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="ApprovalStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="isDraft" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Approvers" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="CreatedDate" type="org.hibernate.type.TimestampType" />
+		<property name="ApproverEmails" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSLeavePoliciesImpl" table="LMSLeavePolicies">
+		<cache usage="read-write" />
+		<id name="PolicyId" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="Project" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="LeaveTypesApplicable" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="LocationsApplicable" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSLeaveTypeImpl" table="LMSLeaveType">
+		<id name="LeaveTypeCode" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="LeaveTypeName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CountriesApplicable" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="MonthlyAccrual" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="AccrualValue" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="CreditReset" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ResetInterval" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ResetDay" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ExcludeWeekEnds" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ExcludeHolidays" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSMailNotificationsImpl" table="LMSMailNotifications">
+		<cache usage="read-write" />
+		<id name="MailNotfnId" type="int">
+			<generator class="identity" />
+		</id>
+		<property name="LeaveRequestId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="FromAddrs" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ToAddrs" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSProjectDetailsImpl" table="LMSProjectDetails">
+		<id name="AssignmentID" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="EmployeeId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ProjectCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ProjectName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ApproverName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ApproverID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ApproverEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.LMSWeekendsImpl" table="LMSWeekends">
+		<id name="LocationId" type="int">
+			<generator class="identity" />
+		</id>
+		<property name="Location" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="WeekendDays" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.securaxEmployeeHrsImpl" table="securaxEmployeeHrs">
+		<id name="EmployeeId" type="int">
+			<generator class="identity" />
+		</id>
+		<property name="PunchDate" type="org.hibernate.type.TimestampType" />
+		<property name="PunchInTime" type="org.hibernate.type.TimestampType" />
+		<property name="PunchOutTime" type="org.hibernate.type.TimestampType" />
+		<property name="WorkHrsPerday" type="org.hibernate.type.TimestampType" />
+		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="OT" type="org.hibernate.type.TimestampType" />
+		<property name="Created_By" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="Created_Date" type="org.hibernate.type.TimestampType" />
+		<property name="Modified_By" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="Modified_Date" type="org.hibernate.type.TimestampType" />
+		<property name="S_Id" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.trianz.lms.model.impl.WFHManulPunchImpl" table="WFHManulPunch">
+		<cache usage="read-write" />
+		<id name="WFHManualPunchId" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="WFHID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="Intime" type="org.hibernate.type.TimestampType" />
+		<property name="OutTime" type="org.hibernate.type.TimestampType" />
+		<property name="CreatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="CreatedDate" type="org.hibernate.type.TimestampType" />
+		<property name="ModifiedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ModifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="PUNCHDATE" type="org.hibernate.type.TimestampType" />
+		<property name="EmployeeID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="IsApproved" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>

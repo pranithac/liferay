@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.trianz.lms"
+	auto-namespace-tables="false">
+	<author />
+	<namespace>LMS</namespace>
+
+	<!-- Leave Balance Table -->
+	<entity name="LeaveBalance" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+
+		<column name="EmployeeId" type="int" primary="true" />
+		<column name="ELBalance" type="double" />
+		<column name="CLBalance" type="double" />
+		<column name="CompOffLeaveBalance" type="double" />
+
+		<order by="asc">
+			<order-column name="EmployeeId" />
+		</order>
+
+		<finder name="EmployeeID" return-type="LeaveBalance">
+			<finder-column name="EmployeeId" />
+		</finder>
+	</entity>
+	<!-- Leave Balance Table -->
+	
+	<!-- Employee Information Table -->
+	<entity name="LMSEmployeeDetails" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+		
+		<column name="EmployeeId" type="int" primary="true" />
+		<column name="EmployeeName" type="String" />
+		<column name="EmployeeEmailID" type="String" />
+		<column name="JoiningDate" type="Date" />
+		<column name="SupervisorId" type="int" />
+		<column name="SupervisorName" type="String" />
+		<column name="SupervisorEmail" type="String" />
+		<column name="Location" type="String"></column>
+		<column name="Region" type="String"></column>
+		<order by="asc">
+			<order-column name="EmployeeId" />
+		</order>
+
+
+		<finder name="emailId" return-type="LMSEmployeeDetails">
+			<finder-column name="EmployeeEmailID" />
+		</finder>
+
+		<finder name="supervisorEmail" return-type="Collection">
+			<finder-column name="SupervisorEmail" />
+		</finder>
+		<finder name="EmployeeName" return-type="LMSEmployeeDetails">
+			<finder-column name="EmployeeName" />
+		</finder>
+		<!-- <finder name="Region" return-type="Collection" >
+			<finder-column name="Region" />
+		</finder> -->
+		<!-- <finder name="Location" return-type="Collection" unique="true">
+			<finder-column name="Location" />
+		</finder> -->
+	
+	
+	
+	</entity>
+	<!-- Employee Information Table -->
+
+	<!-- Project Information Table -->
+	<entity name="LMSProjectDetails" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+
+		<column name="EmployeeId" type="int" />
+		<column name="ProjectCode" type="String" />
+		<column name="ProjectName" type="String" />
+		<column name="ApproverName" type="String" />
+		<column name="ApproverID" type="int" />
+		<column name="ApproverEmail" type="String" />
+		<column name="AssignmentID" type="int" primary="true" />
+		<order by="asc">
+			<order-column name="EmployeeId" />
+		</order>
+		<finder name="EmployeeId" return-type="Collection">
+			<finder-column name="EmployeeId" />
+		</finder>
+		
+		<finder name="ProjectCode" return-type="LMSProjectDetails">
+			<finder-column name="ProjectCode" />
+			<finder-column name="EmployeeId" />
+		</finder>
+		
+		<finder name="ProjectCodetogetName" return-type="LMSProjectDetails">
+			<finder-column name="ProjectCode" />
+		</finder>
+		
+		<finder name="ApproverEmailId" return-type="Collection">
+			<finder-column name="ApproverEmail"></finder-column>
+		</finder>
+		<finder name="ApproverandProject" return-type="Collection">
+			<finder-column name="ApproverEmail" />
+			<finder-column name="ProjectCode" />
+		</finder>
+		
+		
+	</entity>
+	<!-- Project Information Table -->
+
+	
+	<!-- Leave Categories Table -->
+	<entity name="LeaveCategories" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+		<column name="LeaveCategoryCode" type="String" />
+		<column name="LeaveCategory" type="String" />
+		<column name="LeaveTypeCode" type="int" primary="true" />
+		<order by="asc">
+			<order-column name="LeaveCategoryCode" />
+		</order>
+		<finder name="LeaveTypeCode" return-type="LeaveCategories">
+			<finder-column name="LeaveTypeCode" />
+		</finder>
+		
+		<finder name="LeaveCategoryCode" return-type="LeaveCategories">
+			<finder-column name="LeaveCategoryCode" />
+			<finder-column name="LeaveTypeCode" />
+		</finder>
+		
+		
+			<finder name="LeaveCategoryName" return-type="LeaveCategories">
+			<finder-column name="LeaveCategory" />
+			<finder-column name="LeaveTypeCode" />
+		</finder>
+		
+		
+		
+		<finder name="CategoryName" return-type="LeaveCategories">
+			<finder-column name="LeaveCategory" />
+			<finder-column name="LeaveTypeCode" />
+		</finder>
+		<finder name="LeaveCategory" return-type="Collection">
+			<finder-column name="LeaveCategory" />
+		</finder>
+	</entity>
+	<!-- Leave Categories Table -->
+
+
+
+	
+<!-- Leave Information Table -->
+	<entity name="LMSLeaveInformation" local-service="true"
+		remote-service="true" data-source="devDS" session-factory="devSessionFactory"
+		tx-manager="devTransactionManager" cache-enabled="false">
+		<column name="SNo" primary="true" type="int" />
+		<column name="LeaveRequestId" type="String"/>
+		<column name="EmployeeId" type="int" />
+		<column name="AbsenceType" type="String" />
+		<column name="LeaveTypeCode" type="int" />
+		<column name="LeaveCategoryCode" type="String" />
+		
+		
+		<column name="SupervisorID" type="int" />
+		<column name="StartDate" type="Date" />
+		<column name="EndDate" type="Date" />
+		<column name="Duration" type="double" />
+		<column name="ApprovalStatus" type="String" />
+		<column name="Comments" type="String" />
+		<column name="isDraft" type="String" />
+		<column name="Approvers" type="int"></column>
+		<column name="CreatedDate" type="Date"></column>
+		<column name="ApproverEmails" type="String"/>
+		
+		<order by="asc">
+			<order-column name="LeaveRequestId" />
+		</order>
+		<finder name="EmployeeId" return-type="Collection">
+			<finder-column name="EmployeeId" />
+		</finder>
+		<finder name="LeaveRequestId" return-type="LMSLeaveInformation">
+			<finder-column name="LeaveRequestId" />
+		</finder>
+		
+		<finder name="approvalStatus" return-type="Collection">
+			<finder-column name="EmployeeId" />
+			<finder-column name="ApprovalStatus" />
+		</finder>
+		<finder name="Drafts" return-type="Collection">
+			<finder-column name="isDraft" />
+		</finder>
+		 <finder name="ApproverEmails" return-type="Collection">
+                     <finder-column name="ApproverEmails" />
+              </finder>
+	</entity>
+	<!-- Leave Information Table -->
+	<!-- start biometric info of the employee -->
+	<entity name="securaxEmployeeHrs" local-service="true"
+		remote-service="true" data-source="devDS" session-factory="devSessionFactory"
+		tx-manager="devTransactionManager" cache-enabled="false">
+		
+		<column name="EmployeeId" type="int" primary="true" id-type="identity"/>
+		<column name="PunchDate" type="Date" />
+		<column name="PunchInTime" type="Date" />
+		<column name="PunchOutTime" type="Date" />
+		<column name="WorkHrsPerday" type="Date" />
+		<column name="Status" type="String" />
+		<column name="OT" type="Date" />
+		<column name="Created_By" type="int" />
+		<column name="Created_Date" type="Date" />
+		<column name="Modified_By" type="int" />
+		<column name="Modified_Date" type="Date" />
+		<column name="S_Id" type="int" />
+		
+		
+		
+		<order by="asc">
+			<order-column name="EmployeeId" />
+		</order>
+		<finder name="EmployeeId" return-type="securaxEmployeeHrs">
+			<finder-column name="EmployeeId" />
+			<finder-column name="PunchDate" />
+		</finder>
+	</entity>
+
+	<!-- end of biometric table -->
+	
+	
+	
+	<!-- start compoff table  -->
+	<entity name="LMSCompOffLeaveDetails" local-service="true"
+		remote-service="true" data-source="devDS" session-factory="devSessionFactory"
+		tx-manager="devTransactionManager" cache-enabled="false">
+		
+		<column name="ApprovedBy" type="String" />
+		<column name="CreatedDate" type="Date" />
+		<column name="EmployeeID" type="int" primary="true"/>
+		<column name="Status" type="String" />
+		<column name="CompoffDate" type="Date" primary="true"/>
+		<column name="CompOffId" type="int"/>
+		<column name="ApproverEmployeeID" type="int" />
+		<order by="asc">
+			<order-column name="CompoffDate" />
+		</order>
+		<finder name="EmployeeID" return-type="LMSCompOffLeaveDetails">
+			<finder-column name="EmployeeID" />
+			<finder-column name="CompoffDate" />
+		</finder>
+		<finder return-type="Collection" name="ApprovedBy">
+			<finder-column name="ApprovedBy" comparator="LIKE"/>
+		</finder>
+		<finder return-type="Collection" name="ApproverEmpId">
+			<finder-column name="ApproverEmployeeID" />
+		</finder>
+		<finder return-type="LMSCompOffLeaveDetails" name="compOffId">
+			<finder-column name="CompOffId" />
+		</finder>
+	</entity>
+
+	<!-- end of compoff table -->
+		<entity name="LeaveInformationAudit" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory">
+		<column name="LogId" type="int" primary="true"/>
+		<column name="LeaveRequestId" type="int" />
+		<column name="Action" type="String" />
+		<column name="ActionBy" type="String" />
+		<column name="CreatedDate" type="Date" />
+					
+			<finder name="LeaveRequestId" return-type="Collection">
+				<finder-column name="LeaveRequestId" />
+			</finder>
+		</entity>
+		
+	<!-- manual punchin table -->
+		<entity name="WFHManulPunch" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory">
+			<column name="WFHManualPunchId" type="int" primary="true"/>
+			<column name="WFHID" type="int" />
+			<column name="Intime" type="Date" />
+			<column name="OutTime" type="Date" />
+			<column name="CreatedBy" type="String" />
+			<column name="CreatedDate" type="Date"/>
+			<column name="ModifiedBy" type="String" />
+			<column name="ModifiedDate" type="Date" />
+			<column name="PUNCHDATE" type="Date" />
+			<column name="EmployeeID" type="int" />
+			<column name="IsApproved" type="boolean" />	
+							
+			<finder name="EmployeeID" return-type="WFHManulPunch">
+				<finder-column name="EmployeeID" />
+				<finder-column name="PUNCHDATE" />
+			</finder>
+		</entity>
+		
+	<entity name="LMSLeavePolicies" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory">
+	<column name="PolicyId" type="int" primary="true"/>
+	<column name="Project" type="String"/>
+	<column name="LeaveTypesApplicable" type="String"/>
+	<column name="LocationsApplicable" type="String"/>
+	</entity>
+	<!-- Leave approval history  -->
+		<entity name="LeaveApprovalHistory" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory">
+			<column name="SNo" type="int" primary="true" id-type="identity" />
+			<column name="LeaveRequestId" type="String" />
+			<column name="ApproverID" type="int" />
+			<column name="LeaveStatus" type="String" />
+			
+			<finder name="LeaveRequestId" return-type="Collection">
+				<finder-column name="LeaveRequestId" />
+			</finder>
+		</entity>
+		<!-- LMSMail Notifications  -->
+		
+		<entity name="LMSMailNotifications" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory">
+			<column name="MailNotfnId" type="int" primary="true" id-type="identity" />
+			<column name="LeaveRequestId" type="String" />
+			<column name="FromAddrs" type="String" />
+			<column name="ToAddrs" type="String" />
+			<column name="Comments" type="String" />
+			
+			<finder name="LeaveRequestId" return-type="Collection">
+				<finder-column name="LeaveRequestId" />
+			</finder>
+		</entity>
+		
+		
+		       <entity name="LMSLeaveType" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+              <column name="LeaveTypeCode" type="int" primary="true" />
+              <column name="LeaveTypeName" type="String" />
+              <column name="CountriesApplicable" type="String" />
+              <column name="MonthlyAccrual" type="String" />
+              <column name="AccrualValue" type="double" />
+              <column name="CreditReset" type="String" />
+              <column name="ResetInterval" type="String" />
+              <column name="ResetDay" type="int" />
+              <column name="ExcludeWeekEnds" type="String"></column>
+              <column name="ExcludeHolidays" type="String"></column>
+              
+              
+              
+              <order by="asc">
+                     <order-column name="LeaveTypeCode" />
+              </order>
+
+              <finder name="LeaveTypeCode" return-type="LMSLeaveType">
+                     <finder-column name="LeaveTypeCode" />
+              </finder>
+              
+              <finder name="LeaveTypeName" return-type="LMSLeaveType">
+                     <finder-column name="LeaveTypeName" />
+              </finder>
+               <finder name="CountriesApplicable" return-type="Collection">
+                     <finder-column name="CountriesApplicable" />
+              </finder>
+              
+       </entity>
+
+
+
+
+       <entity name="LMSHolidays" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+              <column name="HolidayId" type="int" primary="true" id-type="identity"/>
+              <column name="HolidayDate" type="Date" />
+              <column name="Occassion" type="String" />
+              <column name="HolidayYear" type="int" />
+              <column name="LocationsApplicable" type="String" />
+              
+              <order by="asc">
+                     <order-column name="HolidayId" />
+              </order>
+
+              <finder name="HolidayYear" return-type="Collection">
+                     <finder-column name="HolidayYear" />
+              </finder>
+       </entity>
+		 <entity name="LMSWeekends" local-service="true" remote-service="true" data-source="devDS" session-factory="devSessionFactory" tx-manager="devTransactionManager" cache-enabled="false">
+		 <column name="LocationId" type="int" primary="true" id-type="identity"/>
+		 <column name="Location" type="String"/>
+		 <column name="WeekendDays" type="String"/>
+		 
+		  <finder name="Location" return-type="LMSWeekends">
+                     <finder-column name="Location" />
+              </finder>
+		 </entity>
+</service-builder>

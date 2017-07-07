@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.trianz.lms.model.LeaveApprovalHistory">
+		<field name="SNo" type="int" />
+		<field name="LeaveRequestId" type="String" />
+		<field name="ApproverID" type="int" />
+		<field name="LeaveStatus" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LeaveBalance">
+		<field name="EmployeeId" type="int" />
+		<field name="ELBalance" type="double" />
+		<field name="CLBalance" type="double" />
+		<field name="CompOffLeaveBalance" type="double" />
+	</model>
+	<model name="com.trianz.lms.model.LeaveCategories">
+		<field name="LeaveCategoryCode" type="String" />
+		<field name="LeaveCategory" type="String" />
+		<field name="LeaveTypeCode" type="int" />
+	</model>
+	<model name="com.trianz.lms.model.LeaveInformationAudit">
+		<field name="LogId" type="int" />
+		<field name="LeaveRequestId" type="int" />
+		<field name="Action" type="String" />
+		<field name="ActionBy" type="String" />
+		<field name="CreatedDate" type="Date" />
+	</model>
+	<model name="com.trianz.lms.model.LMSCompOffLeaveDetails">
+		<field name="ApprovedBy" type="String" />
+		<field name="CreatedDate" type="Date" />
+		<field name="EmployeeID" type="int" />
+		<field name="Status" type="String" />
+		<field name="CompoffDate" type="Date" />
+		<field name="CompOffId" type="int" />
+		<field name="ApproverEmployeeID" type="int" />
+	</model>
+	<model name="com.trianz.lms.model.LMSEmployeeDetails">
+		<field name="EmployeeId" type="int" />
+		<field name="EmployeeName" type="String" />
+		<field name="EmployeeEmailID" type="String" />
+		<field name="JoiningDate" type="Date" />
+		<field name="SupervisorId" type="int" />
+		<field name="SupervisorName" type="String" />
+		<field name="SupervisorEmail" type="String" />
+		<field name="Location" type="String" />
+		<field name="Region" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LMSHolidays">
+		<field name="HolidayId" type="int" />
+		<field name="HolidayDate" type="Date" />
+		<field name="Occassion" type="String" />
+		<field name="HolidayYear" type="int" />
+		<field name="LocationsApplicable" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LMSLeaveInformation">
+		<field name="SNo" type="int" />
+		<field name="LeaveRequestId" type="String" />
+		<field name="EmployeeId" type="int" />
+		<field name="AbsenceType" type="String" />
+		<field name="LeaveTypeCode" type="int" />
+		<field name="LeaveCategoryCode" type="String" />
+		<field name="SupervisorID" type="int" />
+		<field name="StartDate" type="Date" />
+		<field name="EndDate" type="Date" />
+		<field name="Duration" type="double" />
+		<field name="ApprovalStatus" type="String" />
+		<field name="Comments" type="String" />
+		<field name="isDraft" type="String" />
+		<field name="Approvers" type="int" />
+		<field name="CreatedDate" type="Date" />
+		<field name="ApproverEmails" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LMSLeavePolicies">
+		<field name="PolicyId" type="int" />
+		<field name="Project" type="String" />
+		<field name="LeaveTypesApplicable" type="String" />
+		<field name="LocationsApplicable" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LMSLeaveType">
+		<field name="LeaveTypeCode" type="int" />
+		<field name="LeaveTypeName" type="String" />
+		<field name="CountriesApplicable" type="String" />
+		<field name="MonthlyAccrual" type="String" />
+		<field name="AccrualValue" type="double" />
+		<field name="CreditReset" type="String" />
+		<field name="ResetInterval" type="String" />
+		<field name="ResetDay" type="int" />
+		<field name="ExcludeWeekEnds" type="String" />
+		<field name="ExcludeHolidays" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LMSMailNotifications">
+		<field name="MailNotfnId" type="int" />
+		<field name="LeaveRequestId" type="String" />
+		<field name="FromAddrs" type="String" />
+		<field name="ToAddrs" type="String" />
+		<field name="Comments" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.LMSProjectDetails">
+		<field name="EmployeeId" type="int" />
+		<field name="ProjectCode" type="String" />
+		<field name="ProjectName" type="String" />
+		<field name="ApproverName" type="String" />
+		<field name="ApproverID" type="int" />
+		<field name="ApproverEmail" type="String" />
+		<field name="AssignmentID" type="int" />
+	</model>
+	<model name="com.trianz.lms.model.LMSWeekends">
+		<field name="LocationId" type="int" />
+		<field name="Location" type="String" />
+		<field name="WeekendDays" type="String" />
+	</model>
+	<model name="com.trianz.lms.model.securaxEmployeeHrs">
+		<field name="EmployeeId" type="int" />
+		<field name="PunchDate" type="Date" />
+		<field name="PunchInTime" type="Date" />
+		<field name="PunchOutTime" type="Date" />
+		<field name="WorkHrsPerday" type="Date" />
+		<field name="Status" type="String" />
+		<field name="OT" type="Date" />
+		<field name="Created_By" type="int" />
+		<field name="Created_Date" type="Date" />
+		<field name="Modified_By" type="int" />
+		<field name="Modified_Date" type="Date" />
+		<field name="S_Id" type="int" />
+	</model>
+	<model name="com.trianz.lms.model.WFHManulPunch">
+		<field name="WFHManualPunchId" type="int" />
+		<field name="WFHID" type="int" />
+		<field name="Intime" type="Date" />
+		<field name="OutTime" type="Date" />
+		<field name="CreatedBy" type="String" />
+		<field name="CreatedDate" type="Date" />
+		<field name="ModifiedBy" type="String" />
+		<field name="ModifiedDate" type="Date" />
+		<field name="PUNCHDATE" type="Date" />
+		<field name="EmployeeID" type="int" />
+		<field name="IsApproved" type="boolean" />
+	</model>
+</model-hints>

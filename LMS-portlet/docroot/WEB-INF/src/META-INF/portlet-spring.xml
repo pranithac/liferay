@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.trianz.lms.service.LeaveApprovalHistoryLocalService" class="com.trianz.lms.service.impl.LeaveApprovalHistoryLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LeaveApprovalHistoryService" class="com.trianz.lms.service.impl.LeaveApprovalHistoryServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LeaveApprovalHistoryPersistence" class="com.trianz.lms.service.persistence.LeaveApprovalHistoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LeaveBalanceLocalService" class="com.trianz.lms.service.impl.LeaveBalanceLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LeaveBalanceService" class="com.trianz.lms.service.impl.LeaveBalanceServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LeaveBalancePersistence" class="com.trianz.lms.service.persistence.LeaveBalancePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LeaveCategoriesLocalService" class="com.trianz.lms.service.impl.LeaveCategoriesLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LeaveCategoriesService" class="com.trianz.lms.service.impl.LeaveCategoriesServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LeaveCategoriesPersistence" class="com.trianz.lms.service.persistence.LeaveCategoriesPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LeaveInformationAuditLocalService" class="com.trianz.lms.service.impl.LeaveInformationAuditLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LeaveInformationAuditService" class="com.trianz.lms.service.impl.LeaveInformationAuditServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LeaveInformationAuditPersistence" class="com.trianz.lms.service.persistence.LeaveInformationAuditPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSCompOffLeaveDetailsLocalService" class="com.trianz.lms.service.impl.LMSCompOffLeaveDetailsLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSCompOffLeaveDetailsService" class="com.trianz.lms.service.impl.LMSCompOffLeaveDetailsServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSCompOffLeaveDetailsPersistence" class="com.trianz.lms.service.persistence.LMSCompOffLeaveDetailsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSEmployeeDetailsLocalService" class="com.trianz.lms.service.impl.LMSEmployeeDetailsLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSEmployeeDetailsService" class="com.trianz.lms.service.impl.LMSEmployeeDetailsServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSEmployeeDetailsPersistence" class="com.trianz.lms.service.persistence.LMSEmployeeDetailsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSHolidaysLocalService" class="com.trianz.lms.service.impl.LMSHolidaysLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSHolidaysService" class="com.trianz.lms.service.impl.LMSHolidaysServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSHolidaysPersistence" class="com.trianz.lms.service.persistence.LMSHolidaysPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSLeaveInformationLocalService" class="com.trianz.lms.service.impl.LMSLeaveInformationLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSLeaveInformationService" class="com.trianz.lms.service.impl.LMSLeaveInformationServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSLeaveInformationPersistence" class="com.trianz.lms.service.persistence.LMSLeaveInformationPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSLeavePoliciesLocalService" class="com.trianz.lms.service.impl.LMSLeavePoliciesLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSLeavePoliciesService" class="com.trianz.lms.service.impl.LMSLeavePoliciesServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSLeavePoliciesPersistence" class="com.trianz.lms.service.persistence.LMSLeavePoliciesPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSLeaveTypeLocalService" class="com.trianz.lms.service.impl.LMSLeaveTypeLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSLeaveTypeService" class="com.trianz.lms.service.impl.LMSLeaveTypeServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSLeaveTypePersistence" class="com.trianz.lms.service.persistence.LMSLeaveTypePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSMailNotificationsLocalService" class="com.trianz.lms.service.impl.LMSMailNotificationsLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSMailNotificationsService" class="com.trianz.lms.service.impl.LMSMailNotificationsServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSMailNotificationsPersistence" class="com.trianz.lms.service.persistence.LMSMailNotificationsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSProjectDetailsLocalService" class="com.trianz.lms.service.impl.LMSProjectDetailsLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSProjectDetailsService" class="com.trianz.lms.service.impl.LMSProjectDetailsServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSProjectDetailsPersistence" class="com.trianz.lms.service.persistence.LMSProjectDetailsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.LMSWeekendsLocalService" class="com.trianz.lms.service.impl.LMSWeekendsLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.LMSWeekendsService" class="com.trianz.lms.service.impl.LMSWeekendsServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.LMSWeekendsPersistence" class="com.trianz.lms.service.persistence.LMSWeekendsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.securaxEmployeeHrsLocalService" class="com.trianz.lms.service.impl.securaxEmployeeHrsLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.securaxEmployeeHrsService" class="com.trianz.lms.service.impl.securaxEmployeeHrsServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.securaxEmployeeHrsPersistence" class="com.trianz.lms.service.persistence.securaxEmployeeHrsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+	<bean id="com.trianz.lms.service.WFHManulPunchLocalService" class="com.trianz.lms.service.impl.WFHManulPunchLocalServiceImpl" />
+	<bean id="com.trianz.lms.service.WFHManulPunchService" class="com.trianz.lms.service.impl.WFHManulPunchServiceImpl" />
+	<bean id="com.trianz.lms.service.persistence.WFHManulPunchPersistence" class="com.trianz.lms.service.persistence.WFHManulPunchPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="devDS" />
+		<property name="sessionFactory" ref="devSessionFactory" />
+	</bean>
+</beans>

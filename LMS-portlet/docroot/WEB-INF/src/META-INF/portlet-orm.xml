@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.trianz.lms.model.impl.LeaveApprovalHistoryModelImpl">
+		<attributes>
+			<id name="SNo" />
+			<basic name="LeaveRequestId" />
+			<basic name="ApproverID" />
+			<basic name="LeaveStatus" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LeaveBalanceModelImpl">
+		<attributes>
+			<id name="EmployeeId" />
+			<basic name="ELBalance" />
+			<basic name="CLBalance" />
+			<basic name="CompOffLeaveBalance" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LeaveCategoriesModelImpl">
+		<attributes>
+			<id name="LeaveTypeCode" />
+			<basic name="LeaveCategoryCode" />
+			<basic name="LeaveCategory" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LeaveInformationAuditModelImpl">
+		<attributes>
+			<id name="LogId" />
+			<basic name="LeaveRequestId" />
+			<basic name="Action" />
+			<basic name="ActionBy" />
+			<basic name="CreatedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSCompOffLeaveDetailsModelImpl">
+		<id-class class="com.trianz.lms.service.persistence.LMSCompOffLeaveDetailsPK" />
+		<attributes>
+			<id name="EmployeeID" />
+			<id name="CompoffDate">
+				<temporal>TIMESTAMP</temporal>
+			</id>
+			<basic name="ApprovedBy" />
+			<basic name="CreatedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Status" />
+			<basic name="CompOffId" />
+			<basic name="ApproverEmployeeID" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSEmployeeDetailsModelImpl">
+		<attributes>
+			<id name="EmployeeId" />
+			<basic name="EmployeeName" />
+			<basic name="EmployeeEmailID" />
+			<basic name="JoiningDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="SupervisorId" />
+			<basic name="SupervisorName" />
+			<basic name="SupervisorEmail" />
+			<basic name="Location" />
+			<basic name="Region" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSHolidaysModelImpl">
+		<attributes>
+			<id name="HolidayId" />
+			<basic name="HolidayDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Occassion" />
+			<basic name="HolidayYear" />
+			<basic name="LocationsApplicable" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSLeaveInformationModelImpl">
+		<attributes>
+			<id name="SNo" />
+			<basic name="LeaveRequestId" />
+			<basic name="EmployeeId" />
+			<basic name="AbsenceType" />
+			<basic name="LeaveTypeCode" />
+			<basic name="LeaveCategoryCode" />
+			<basic name="SupervisorID" />
+			<basic name="StartDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="EndDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Duration" />
+			<basic name="ApprovalStatus" />
+			<basic name="Comments" />
+			<basic name="isDraft" />
+			<basic name="Approvers" />
+			<basic name="CreatedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="ApproverEmails" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSLeavePoliciesModelImpl">
+		<attributes>
+			<id name="PolicyId" />
+			<basic name="Project" />
+			<basic name="LeaveTypesApplicable" />
+			<basic name="LocationsApplicable" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSLeaveTypeModelImpl">
+		<attributes>
+			<id name="LeaveTypeCode" />
+			<basic name="LeaveTypeName" />
+			<basic name="CountriesApplicable" />
+			<basic name="MonthlyAccrual" />
+			<basic name="AccrualValue" />
+			<basic name="CreditReset" />
+			<basic name="ResetInterval" />
+			<basic name="ResetDay" />
+			<basic name="ExcludeWeekEnds" />
+			<basic name="ExcludeHolidays" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSMailNotificationsModelImpl">
+		<attributes>
+			<id name="MailNotfnId" />
+			<basic name="LeaveRequestId" />
+			<basic name="FromAddrs" />
+			<basic name="ToAddrs" />
+			<basic name="Comments" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSProjectDetailsModelImpl">
+		<attributes>
+			<id name="AssignmentID" />
+			<basic name="EmployeeId" />
+			<basic name="ProjectCode" />
+			<basic name="ProjectName" />
+			<basic name="ApproverName" />
+			<basic name="ApproverID" />
+			<basic name="ApproverEmail" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.LMSWeekendsModelImpl">
+		<attributes>
+			<id name="LocationId" />
+			<basic name="Location" />
+			<basic name="WeekendDays" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.securaxEmployeeHrsModelImpl">
+		<attributes>
+			<id name="EmployeeId" />
+			<basic name="PunchDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="PunchInTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="PunchOutTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="WorkHrsPerday">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Status" />
+			<basic name="OT">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Created_By" />
+			<basic name="Created_Date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Modified_By" />
+			<basic name="Modified_Date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="S_Id" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.trianz.lms.model.impl.WFHManulPunchModelImpl">
+		<attributes>
+			<id name="WFHManualPunchId" />
+			<basic name="WFHID" />
+			<basic name="Intime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="OutTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="CreatedBy" />
+			<basic name="CreatedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="ModifiedBy" />
+			<basic name="ModifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="PUNCHDATE">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="EmployeeID" />
+			<basic name="IsApproved" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.trianz.lms.model.impl.LeaveApprovalHistoryImpl" name="LeaveApprovalHistory">
+		<table name="LeaveApprovalHistory" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LeaveBalanceImpl" name="LeaveBalance">
+		<table name="LeaveBalance" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LeaveCategoriesImpl" name="LeaveCategories">
+		<table name="LeaveCategories" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LeaveInformationAuditImpl" name="LeaveInformationAudit">
+		<table name="LeaveInformationAudit" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSCompOffLeaveDetailsImpl" name="LMSCompOffLeaveDetails">
+		<table name="LMSCompOffLeaveDetails" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSEmployeeDetailsImpl" name="LMSEmployeeDetails">
+		<table name="LMSEmployeeDetails" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSHolidaysImpl" name="LMSHolidays">
+		<table name="LMSHolidays" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSLeaveInformationImpl" name="LMSLeaveInformation">
+		<table name="LMSLeaveInformation" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSLeavePoliciesImpl" name="LMSLeavePolicies">
+		<table name="LMSLeavePolicies" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSLeaveTypeImpl" name="LMSLeaveType">
+		<table name="LMSLeaveType" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSMailNotificationsImpl" name="LMSMailNotifications">
+		<table name="LMSMailNotifications" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSProjectDetailsImpl" name="LMSProjectDetails">
+		<table name="LMSProjectDetails" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.LMSWeekendsImpl" name="LMSWeekends">
+		<table name="LMSWeekends" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.securaxEmployeeHrsImpl" name="securaxEmployeeHrs">
+		<table name="securaxEmployeeHrs" />
+		<attributes />
+	</entity>
+	<entity class="com.trianz.lms.model.impl.WFHManulPunchImpl" name="WFHManulPunch">
+		<table name="WFHManulPunch" />
+		<attributes />
+	</entity>
+</entity-mappings>
